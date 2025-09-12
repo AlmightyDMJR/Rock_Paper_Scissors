@@ -5,9 +5,9 @@ const choices = document.querySelectorAll(".choice");
 const msg = document.querySelector("#msg");
 
 const clickSound = new Audio("click.mp3");
-
-const userScorePara = document.querySelector("#user-score");
 const compScorePara = document.querySelector("#comp-score");
+const userScorePara = document.querySelector("#user-score");
+
 
 const genCompChoice = () => {
   const options = ["rock", "paper", "scissor"];
@@ -16,7 +16,7 @@ const genCompChoice = () => {
 };
 
 const drawGame = () => {
-  msg.innerText = "Game was Draw. Play again.";
+  msg.innerText = "Game was Draw, Play again.";
   
 };
 
