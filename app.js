@@ -4,6 +4,8 @@ let compScore = 0;
 const choices = document.querySelectorAll(".choice");
 const msg = document.querySelector("#msg");
 
+const clickSound = new Audio("click.mp3");
+
 const userScorePara = document.querySelector("#user-score");
 const compScorePara = document.querySelector("#comp-score");
 
@@ -58,6 +60,11 @@ const playGame = (userChoice) => {
 choices.forEach((choice) => {
   choice.addEventListener("click", () => {
     const userChoice = choice.getAttribute("id");
+
+    clickSound.currentTime = 0; 
+    clickSound.play();
+
+
     playGame(userChoice);
   });
 });
