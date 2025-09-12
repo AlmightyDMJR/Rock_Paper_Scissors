@@ -1,0 +1,237 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+body {
+  background: radial-gradient(circle at top, #0a1a2f, #050b14);
+  color: #fff;
+  min-height: 100vh;
+  text-align: center;
+}
+
+
+h1 {
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  color: transparent;
+  -webkit-background-clip: text;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  height: 6rem;
+  line-height: 6rem;
+  box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+}
+
+
+.choice {
+  height: 170px;
+  width: 170px;
+  border-radius: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.choice:hover {
+  transform: translateY(-10px) scale(1.1);
+  background: linear-gradient(145deg, #00f2fe, #4facfe);
+  box-shadow: 0 0 25px #00f2fe;
+  cursor: pointer;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+  object-fit:initial;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+
+.choices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin: 5rem 0;
+}
+
+
+.score-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin: 3rem;
+  gap: 5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#user-score,
+#comp-score {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #00f2fe;
+  text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+}
+
+/* 💬 Message */
+.msg-container {
+  margin-top: 4rem;
+  background-color: #050b14;
+  margin-left: 8rem;
+  margin-right: 8rem;
+  align-items: center;
+  
+}
+
+#msg {
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #00f2fe, #4facfe, #fff);
+  background-size: 200% auto;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+  animation: shimmer 2.5s ease forwards;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200% center;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    background-position: 200% center;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#msg:hover {
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  box-shadow: 0 0 25px #e52e71;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+#user-score:hover,
+#comp-score:hover {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #e52e71;
+  text-shadow: 0 0 15px rgba(0, 254, 254, 0.6);
+}
+
+
+.choice {
+  height: 25vw;          
+  width: 25vw;
+  max-height: 150px;     
+  max-width: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.choice img {
+  height: 80%;
+  width: 80%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+
+.msg-container {
+  margin: 2rem auto;
+  max-width: 90%;
+  padding: 1rem;
+  background-color: #050b14;
+  border-radius: 1rem;
+}
+
+/* for  Mobiles*/
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    height: auto;
+    line-height: normal;
+    padding: 1rem 0;
+  }
+
+  .choices {
+    flex-direction: column;   
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .score-board {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  #user-score,
+  #comp-score {
+    font-size: 3rem;
+  }
+
+  #msg {
+    font-size: 1.5rem;
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+/*for small screens*/
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .choice {
+    height: 35vw;
+    width: 35vw;
+    max-height: 120px;
+    max-width: 120px;
+  }
+
+  #user-score,
+  #comp-score {
+    font-size: 2.5rem;
+  }
+
+  #msg {
+    font-size: 1.2rem;
+  }
+}
+
