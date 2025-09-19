@@ -5,9 +5,10 @@ const choices = document.querySelectorAll(".choice");
 const msg = document.querySelector("#msg");
 
 const clickSound = new Audio("click.mp3");
+
 const compScorePara = document.querySelector("#comp-score");
 const userScorePara = document.querySelector("#user-score");
-
+const compChoiceImg = document.getElementById("comp-choice-img");
 
 const genCompChoice = () => {
   const options = ["rock", "paper", "scissor"];
@@ -35,28 +36,26 @@ const showWinner = (userWin, userChoice, compChoice) => {
 };
 
 const playGame = (userChoice) => {
-  
   const compChoice = genCompChoice();
 
+  // update computer choice image directly from choices
+  updateCompChoiceImg(compChoice);
+
   if (userChoice === compChoice) {
-    
     drawGame();
-  } 
-  else {
+  } else {
     let userWin = true;
     if (userChoice === "rock") {
-      
       userWin = compChoice === "paper" ? false : true;
     } else if (userChoice === "paper") {
-      
       userWin = compChoice === "scissor" ? false : true;
     } else {
-      
       userWin = compChoice === "rock" ? false : true;
     }
     showWinner(userWin, userChoice, compChoice);
   }
 };
+
 
 choices.forEach((choice) => {
   choice.addEventListener("click", () => {
@@ -69,3 +68,15 @@ choices.forEach((choice) => {
     playGame(userChoice);
   });
 });
+
+
+
+// Fetch image directly from the choices
+const updateCompChoiceImg = (choiceId) => {
+  const choiceElement = document.querySelector(`#${choiceId} img`);
+  if (choiceElement) {
+    compChoiceImg.src = choiceElement.src;
+  }
+};
+
+
